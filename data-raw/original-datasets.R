@@ -32,8 +32,27 @@ indigenous_deaths <- rio::import('data-raw/obitodadecada.xlsx',
                 'death_date' = 'DT_OBITO',
                 'death_icd10' = 'CO_CID10',
                 'death_cause' = 'CAUSA_ÓBITO') %>%
-  dplyr::select(-`...13`)
+  dplyr::select(-`...13`) %>%
+  dplyr::mutate(year = lubridate::year(death_date))
 
+#Sanitary districts' socio-demographic aspects
 
+dsei_sociodemographics <- rio::import('data-raw/saudeinfra.xlsx',
+                                    sheet = 'aldeias')%>%
+  tidyr::pivot_longer('2010':'2019') %>%
+  dplyr::rename( 'dsei' = 'DSEI',
+                 'year' = 'name',
+                 'settlements'='value') %>%
+  dplyr::full_join(y= rio::import('data-raw/saudeinfra.xlsx',
+                       sheet = 'etnia')%>%
+               tidyr::pivot_longer('2010':'2020') %>%
+               dplyr::rename( 'dsei' = 'DSEI',
+                              'year' = 'name',
+                              'ethnicities'='value') %>%
+                 dplyr::select(dsei, year, ethnicities),
+             by = c('dsei', 'year')) %>%
+  dplyr::filter(dsei != "Total Geral",
+                dsei != "TOTAL DE ETNIAS",
+                dsei != is.null(dsei))
 
 usethis::use_data(original-datasets, overwrite = TRUE)

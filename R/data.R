@@ -64,3 +64,26 @@
 #' Informação
 "indigenous_deaths"
 
+#' Indigenous Sanitary Districts' sociodemographics
+#'
+#' The dataset, which comes from the Brazilian open information legislation,
+#' "Lei de Acesso à Informação" showcases Indigenous Sanitary Districts'
+#' sociodemographic aspects, from 2010 to 2020. The variables which are
+#' displayed are 1)'ethinicities' which indicate the amount of indigenous
+#' ethinicities within a single Sanitary District and 2)'settlements' which
+#' indicate the number of indigenous settlements in a given Sanitary District
+#' area.
+#'
+#'
+#' @format A dataset with 374 rows and 4 columns
+#' \describe{
+#'   \item{dsei}{Name of the Indigenous Sanitary District ('DSEI')}
+#'   \item{year}{Year of the observation}
+#'   \item{ethinicities}{Number of indigenous ethinicities living in a given
+#'   Sanitary District}
+#'   \item{ethinicities}{Number of indigenous settlements within a given
+#'   Sanitary District}
+#' }
+#' @source Secretaria Especial de Saúde Indígena, SESAI. Lei de Acesso à
+#' Informação
+"dsei_sociodemographics"
