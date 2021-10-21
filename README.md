@@ -34,9 +34,9 @@ All of the data come from the Brazilian Special Secretary for Indigenous Health 
 
 # That's all folks
 
-Use the package, report mistakes and cite us if you use it in academic reasearch :)
+Use the package, report mistakes and cite us if you use it in academic reasearch :). To cite, use: "Valentim, M. (2021). indigenousbr: Data about indigenous people in Brazil. R package version 1.0.0".
 
-**New stuff soon :
+### New stuff soon :
 -Sociodemographic aspects (ethinicities, settlements)
 -Morbidity (doctor visits, medical consults)
 
